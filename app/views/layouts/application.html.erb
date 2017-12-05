@@ -9,6 +9,23 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1><%= link_to 'Qulazy', root_path %></h1>
+    </header>
+    <main>
+      <%= render 'layouts/flash_messages' %>
+      <%= yield %>
+    </main>
+    <footer>
+      <nav>
+        <ul>
+          <li><%= link_to 'データーベース図', dbmap_path %></li>
+          <li><%= link_to 'ユーザー登録', signup_path %></li>
+          <li><%= link_to 'ユーザー一覧', users_path %></li>
+          <li><%= link_to 'ログイン', login_path %></li>
+          <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+        </ul>
+      </nav>
+    </footer>
   </body>
 </html>

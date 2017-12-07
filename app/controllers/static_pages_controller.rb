@@ -7,4 +7,7 @@ class StaticPagesController < ApplicationController
   
   def task
   end
+  
+  def capture
+  end
 end

@@ -1,0 +1,13 @@
+<% if posts.any? %>
+  <ul>
+    <% posts.each do |post| %>
+      <li>
+        <h4><%= link_to post.title, post_path(post) %></h4>
+        <p><%= post.fact %></p>
+        <p>投稿者：<%= link_to '@' + post.user.username, user_path(post.user) %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>投稿はまだありません</p>
+<% end %>

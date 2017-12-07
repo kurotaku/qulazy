@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   before_action :require_user_logged_in
   
+  def index
+    @posts = Post.all
+  end
+  
   def new
     @post = Post.new
   end
@@ -26,6 +30,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
+  end
+  
+  def result
   end
   
   private

@@ -1,0 +1,6 @@
+<h2><%= params[:keyword] %></h2>
+<h3>検索結果</h3>
+<% keyword = params[:keyword] %>
+<%= render 'posts/result_posts', posts: Post.where(['title LIKE ?', "%#{keyword}%"]) %>
+<h3>再検索</h3>
+<%= render 'shared/search_form' %>

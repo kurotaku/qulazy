@@ -1,14 +1,4 @@
 <h2 class="prof-title"><%= @user.name %></h2>
 <p class="prof-username">@<%= @user.username %></p>
 <h3>最近の投稿</h3>
-<% if @user.posts.any? %>
-  <ul>
-  <% @user.posts.each do |post| %>
-    <li>
-      <%= link_to post.title, post_path(post) %>
-    </li>
-  <% end %>
-  </ul>
-<% else %>
-  <p>投稿はまだありません</p>
-<% end %>
+<%= render 'posts/posts', posts: @user.posts %>

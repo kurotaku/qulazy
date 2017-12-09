@@ -8,4 +8,36 @@ class User < ApplicationRecord
   has_secure_password
   
   has_many :posts
+  has_many :judges
+  has_many :goods
+  has_many :good_posts, through: :goods, class_name: 'Post', source: :post
+  has_many :bads
+  has_many :bad_posts, through: :bads, class_name: 'Post', source: :post
+  
+  def good(post)
+    self.goods.find_or_create_by(post_id: post.id)
+  end
+  
+  def ungood(post)
+    good = self.goods.find_by(post_id: post.id)
+    good.destroy if good
+  end
+  
+  def good?(post)
+    self.good_posts.include?(post)
+  end
+  
+  def bad(post)
+    self.bads.find_or_create_by(post_id: post.id)
+  end
+  
+  def unbad(post)
+    bad = self.bads.find_by(post_id: post.id)
+    bad.destroy if bad
+  end
+  
+  def bad?(post)
+    self.bad_posts.include?(post)
+  end
+  
 end

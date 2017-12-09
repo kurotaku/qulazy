@@ -33,6 +33,14 @@ class PostsController < ApplicationController
   end
   
   def result
+    keyword = params[:keyword]
+    if keyword == ''
+      flash.now[:danger] = 'キーワードを入力してください'
+      @posts = Post.all
+    else
+      keyword = params[:keyword]
+      @posts = Post.where(['title LIKE ?', "%#{keyword}%"])
+    end
   end
   
   private

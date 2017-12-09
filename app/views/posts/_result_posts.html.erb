@@ -5,6 +5,10 @@
         <h4><%= link_to post.title, post_path(post) %></h4>
         <p><%= post.fact %></p>
         <p>投稿者：<%= link_to '@' + post.user.username, user_path(post.user) %></p>
+        <%= render 'judges/good_button', post: post %>
+        <%= render 'judges/bad_button', post: post %>
+        <p>good：<%= post.good_users.count %>人, bad：<%= post.bad_users.count %>人</p>
+        <hr />
       </li>
     <% end %>
   </ul>

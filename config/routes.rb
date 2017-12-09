@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   end
   
   resources :posts
+  resources :judges, only: [:create, :destroy]
+  
 end

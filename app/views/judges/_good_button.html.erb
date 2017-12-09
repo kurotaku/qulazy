@@ -1,0 +1,13 @@
+<% if current_user.good?(post) %>
+  <%= form_tag(judge_path(post.id), method: :delete) do %>
+    <%= hidden_field_tag :post_id, post.id %>
+    <%= hidden_field_tag :type, 'Good' %>
+    <%= submit_tag 'Un good', class: 'btn btn-success' %>
+  <% end %>
+<% else %>
+  <%= form_tag(judges_path) do %>
+    <%= hidden_field_tag :post_id, post.id %>
+    <%= hidden_field_tag :type, 'Good' %>
+    <%= submit_tag 'Good', class: 'btn btn-success' %>
+  <% end %>
+<% end %>

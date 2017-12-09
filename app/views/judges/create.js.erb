@@ -1,0 +1,10 @@
+var id = <%= @post.id %>;
+var type = "<%= @type %>";
+var tar = $('#judgeForm' +type + id);
+$(function(){
+  if(type == 'Bad'){
+    tar.html("<%= escape_javascript(render 'unbad_button', post: @post) %>");
+  }else if(type == 'Good'){
+    tar.html("<%= escape_javascript(render 'ungood_button', post: @post) %>");
+  }
+});

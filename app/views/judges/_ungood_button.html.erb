@@ -1,0 +1,5 @@
+<%= form_tag(judge_path(post.id), method: :delete, remote: true) do %>
+  <%= hidden_field_tag :post_id, post.id %>
+  <%= hidden_field_tag :type, 'Good' %>
+  <%= submit_tag 'Un good', class: 'btn btn-success' %>
+<% end %>

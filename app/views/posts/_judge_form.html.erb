@@ -1,0 +1,17 @@
+<% if !current_user.posts.include?(post) %>
+  <div class="judge-form-good" id="judgeFormGood<%= post.id %>">
+    <% if current_user.good?(post) %>
+      <%= render 'judges/ungood_button', post: post %>
+    <% else %>
+      <%= render 'judges/good_button', post: post %>
+    <% end %>
+  </div>
+  <div class="judge-form-bad" id="judgeFormBad<%= post.id %>">
+    <% if current_user.bad?(post) %>
+      <%= render 'judges/unbad_button', post: post %>
+    <% else %>
+      <%= render 'judges/bad_button', post: post %>
+    <% end %>
+  </div>
+<% end %>
+<p>[リアルタイムではない。開発用]good：<%= post.good_users.count %>人, bad：<%= post.bad_users.count %>人</p>

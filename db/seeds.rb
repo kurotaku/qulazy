@@ -7,10 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # ユーザー登録
-root_user = User.new(name: 'root user', username: 'root', email: 'root@root.com', root: true)
+root_user = User.new(name: 'ROOT USER', username: 'root', email: 'root@root.com', root: true)
 root_user.password = 'root'
 root_user.password_confirmation = 'root'
 root_user.save!
+
+nobody = User.new(name: 'NOBODY', username: 'nobody', email: 'nobody@qulazy.com', root: true)
+nobody.password = 'nobody'
+nobody.password_confirmation = 'nobody'
+nobody.save!
 
 test_user = User.new(name: 'テストユーザー', username: 'test', email: 'test@test.com', root: false)
 test_user.password = 'test'
@@ -32,6 +37,16 @@ saito.password = 'saito'
 saito.password_confirmation = 'saito'
 saito.save!
 
+steave = User.new(name: 'スティーブ・ジョブズ', username: 'steave', email: 'steave@apple.com', root: false)
+steave.password = 'apple'
+steave.password_confirmation = 'apple'
+steave.save!
+
+ichiro = User.new(name: '鈴木 一郎', username: 'ichiro', email: 'ichiro@qulazy.com', root: false)
+ichiro.password = 'ichiro'
+ichiro.password_confirmation = 'ichiro'
+ichiro.save!
+
 kurotaku.posts.create(title: '', fact: '', opinion: '')
 kurotaku.posts.create(title: '池袋駅の喫煙所は', fact: '西口公園にある', opinion: '誰でも使っていいと思う')
 kurotaku.posts.create(title: '東京タワーの高さ', fact: '333m', opinion: '')
@@ -40,3 +55,5 @@ kurotaku.posts.create(title: '新宿駅から東京駅までの乗り換え', fa
 
 yamada.posts.create(title: '東京タワーの高さ', fact: '333m', opinion: '')
 yamada.posts.create(title: '東京スカイツリーの高さ', fact: '634m', opinion: '')
+
+saito.posts.create(title: '東京ドームの面積', fact: '0.047 km²', opinion: '')

@@ -23,9 +23,17 @@ $(document).on('turbolinks:load', function(){
     })
   }
   
+  var timer = [];
+  
   $(document).on('keyup', '#searchForm', function(e){
     e.preventDefault();
-    incrementalSearch($('#searchForm'));
+    timer.push(1);
+    setTimeout(function(){
+      timer.pop();
+      if(timer.length == 0){
+        incrementalSearch($('#searchForm'));
+      }
+    },600);
   });
   
   $(document).on('click', '.incremental-once', function(){

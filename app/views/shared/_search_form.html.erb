@@ -17,15 +17,17 @@ $(document).on('turbolinks:load', function(){
   function incrementalSearch(tar){
     var input = $.trim(tar.val());
     $.ajax({
-      url: "<%= ajax_incremental_search_posts_url %>",
+      url: '<%= ajax_incremental_search_posts_url %>',
       type: 'GET',
-      data: `keyword=${input}`
+      data: `keyword=${input}`,
+      processData: false,
+      contentType: false,
     })
   }
   
   var timer = [];
   
-  $(document).on('keyup', '#searchForm', function(e){
+  $(document).on('input', '#searchForm', function(e){
     e.preventDefault();
     timer.push(1);
     setTimeout(function(){
@@ -33,16 +35,15 @@ $(document).on('turbolinks:load', function(){
       if(timer.length == 0){
         incrementalSearch($('#searchForm'));
       }
-    },600);
+    },400);//スマホ幅はディレイ無しにする
   });
   
   $(document).on('click', '.incremental-once', function(){
     var text = '';
     text = $(this).text();
-    console.log(text);
     $('#searchForm').val(text);
     incrementalSearch($('#searchForm'));
-  });  
+  });
   
 });
 </script>

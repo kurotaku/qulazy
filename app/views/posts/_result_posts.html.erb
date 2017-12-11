@@ -3,7 +3,7 @@
     <% posts.each do |post| %>
       <li>
         <h4><%= link_to post.title, post_path(post) %></h4>
-        <p><%= post.fact %></p>
+        <p><%= simple_format(post.fact) %></p>
         <p>投稿者：<%= link_to '@' + post.user.username, user_path(post.user) %></p>
         <%= render 'judge_form', post: post %>
         <hr />

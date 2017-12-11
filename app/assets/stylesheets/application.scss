@@ -80,6 +80,11 @@ img{
   height: auto !important;
 }
 
+main a{
+  color: #25da9a;
+  text-decoration: underline;
+}
+
 
 /* kaminari */
 .pagination .page, .pagination .next, .pagination .last, .pagination .first, .pagination .prev{
@@ -120,6 +125,15 @@ img{
 
 .form-group input{
   padding: 16px 14px;
+}
+
+
+/* incrimental search */
+#suggestList>li{
+  margin-bottom: 20px;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #25da9a;
 }
 
 

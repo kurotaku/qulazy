@@ -1,6 +1,40 @@
-<%= form_tag result_path, method: 'get' do %>
+<%= form_tag result_posts_path, method: 'get' do %>
   <div class="form-group">
-    <%= text_field_tag :keyword, params[:keyword], class: 'form-control' %>
+    <%= text_field_tag :keyword, params[:keyword], class: 'form-control', id: 'searchForm', autocomplete: 'off' %>
   </div>
+  
+  <div id="incrementalArea">
+    <ul id="suggestList">
+    </ul>
+  </div>
+  
   <%= submit_tag '検索する', title: nil, class: 'btn btn-primary btn-block' %>
 <% end %>
+
+<script>
+$(document).on('turbolinks:load', function(){
+  
+  function incrementalSearch(tar){
+    var input = $.trim(tar.val());
+    $.ajax({
+      url: "<%= ajax_incremental_search_posts_url %>",
+      type: 'GET',
+      data: `keyword=${input}`
+    })
+  }
+  
+  $(document).on('keyup', '#searchForm', function(e){
+    e.preventDefault();
+    incrementalSearch($('#searchForm'));
+  });
+  
+  $(document).on('click', '.incremental-once', function(){
+    var text = '';
+    text = $(this).text();
+    console.log(text);
+    $('#searchForm').val(text);
+    incrementalSearch($('#searchForm'));
+  });  
+  
+});
+</script>

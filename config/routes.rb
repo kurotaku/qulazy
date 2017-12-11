@@ -8,15 +8,19 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   
   get 'signup', to: 'users#new'
-  get 'result', to: 'posts#result'
-  
+
   resources :users do
     member do
       get :posts
     end
   end
   
-  resources :posts
+  resources :posts do
+    collection do
+      get 'ajax_incremental_search'
+      get 'result'
+    end
+  end
   resources :judges, only: [:create, :destroy]
   
 end

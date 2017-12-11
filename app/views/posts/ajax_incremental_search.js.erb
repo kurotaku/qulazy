@@ -1,0 +1,9 @@
+var candidate = '<%= @json_date %>';
+var parsedCandidate;
+parsedCandidate = JSON.parse(candidate.replace(/&quot;/g,'"'));
+
+var html = '';
+for(key in parsedCandidate){
+  html += `<li id="${key}" class="incremental-once">${parsedCandidate[key]}</li>`;
+}
+$('#suggestList').html(html);

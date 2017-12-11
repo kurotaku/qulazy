@@ -43,6 +43,11 @@ class PostsController < ApplicationController
     end
   end
   
+  def ajax_incremental_search
+     @posts = Post.where(['title LIKE ?', "%#{params[:keyword]}%"])
+     @json_date = Hash[*@posts.pluck(:id, :title).flatten].to_json
+  end
+  
   private
   
   def post_params

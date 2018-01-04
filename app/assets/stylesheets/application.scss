@@ -127,28 +127,6 @@ main a{
   padding: 16px 14px;
 }
 
-
-/* good bad */
-.good-submit{
-  width: 55px;
-  height: 55px;
-  background-image: image-url("good.png");
-  cursor: pointer;
-}
-
-@keyframes bg-anime {
- from{ background-position: left 0; }
- to{ background-position: right 0; }
-}
-
-.good-submit.is_animating{
-  animation: bg-anime .8s steps(28);
-}
-
-.good-submit.done{
-  background-position: right 0;
-}
-
 /* incrimental search */
 #suggestList>li{
   margin-bottom: 20px;

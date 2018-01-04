@@ -6,5 +6,6 @@ $(function(){
     tar.html("<%= escape_javascript(render 'bad_button', post: @post) %>");
   }else if(type == 'Good'){
     tar.html("<%= escape_javascript(render 'good_button', post: @post) %>");
+    $("#goodSubmit<%= @post.id %>").toggleClass('done');
   }
 });

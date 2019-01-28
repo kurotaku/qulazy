@@ -1,0 +1,10 @@
+<h2>NotFoundランキング</h2>
+<% if @not_founds.any? %>
+  <ul>
+    <% @not_founds.each do |not_found| %>
+      <li><%= not_found.title %>(<%= not_found.point %>)<%= link_to '解答する', answer_posts_path(id: not_found.id), class: 'btn btn-primary' %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>NotFoundはまだありません</p>
+<% end %>

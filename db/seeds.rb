@@ -44,18 +44,18 @@ ichiro.save!
 
 # add Post
 kurotaku.posts.create(title: "", fact: "", opinion: "")
-kurotaku.posts.create(title: "池袋駅の喫煙所は", fact: "西口公園にある", opinion: "誰でも使っていいと思う")
-kurotaku.posts.create(title: "東京タワーの高さ", fact: "333m", opinion: "")
-kurotaku.posts.create(title: "東京スカイツリーの高さ", fact: "634m", opinion: "ムサシと覚えるといい")
-kurotaku.posts.create(title: "新宿駅から東京駅までの乗り換え", fact: "JR8番線ホーム中央線快速に乗る", opinion: "")
+kurotaku.posts.create(title: "池袋駅の喫煙所は", fact: "西口公園にある", opinion: "誰でも使っていいと思う", post_point: 30)
+kurotaku.posts.create(title: "東京タワーの高さ", fact: "333m", opinion: "", post_point: 0)
+kurotaku.posts.create(title: "東京スカイツリーの高さ", fact: "634m", opinion: "ムサシと覚えるといい", post_point: 0)
+kurotaku.posts.create(title: "新宿駅から東京駅までの乗り換え", fact: "JR8番線ホーム中央線快速に乗る", opinion: "", post_point: 0)
 
-yamada.posts.create(title: "東京タワーの高さ", fact: "333m", opinion: "")
-yamada.posts.create(title: "東京スカイツリーの高さ", fact: "634m", opinion: "")
+yamada.posts.create(title: "東京タワーの高さ", fact: "333m", opinion: "", post_point: 0)
+yamada.posts.create(title: "東京スカイツリーの高さ", fact: "634m", opinion: "", post_point: 0)
 
-saito.posts.create(title: "東京ドームの面積", fact: "0.047 km²", opinion: "")
+saito.posts.create(title: "東京ドームの面積", fact: "0.047 km²", opinion: "", post_point: 0)
 
-steave.posts.create(title: "東京タワーができた年", fact: "1958年（昭和33年）12月23日", opinion: "")
-steave.posts.create(title: "東京タワーの最寄駅", fact: "・都営大江戸線赤羽橋駅：徒歩5分\n・日比谷線神谷町駅：徒歩7分\n・都営三田線御成門駅：徒歩6分\n・都営大江戸線、浅草線大門駅：徒歩10分\n・JR浜松町駅：徒歩15分", opinion: "")
+steave.posts.create(title: "東京タワーができた年", fact: "1958年（昭和33年）12月23日", opinion: "", post_point: 0)
+steave.posts.create(title: "東京タワーの最寄駅", fact: "・都営大江戸線赤羽橋駅：徒歩5分\n・日比谷線神谷町駅：徒歩7分\n・都営三田線御成門駅：徒歩6分\n・都営大江戸線、浅草線大門駅：徒歩10分\n・JR浜松町駅：徒歩15分", opinion: "", post_point: 0)
 
 
 
@@ -67,3 +67,7 @@ steave.good(Post.find_by(title: "東京タワーの高さ"))
 ichiro.bad(Post.find_by(title: "東京タワーの高さ"))
 
 kurotaku.good(Post.find_by(title: "東京ドームの面積"))
+
+#add NotFound
+NotFound.create(title: 'Jリーグの発足日', point: '3')
+NotFound.create(title: '東京都の面積', point: '20')

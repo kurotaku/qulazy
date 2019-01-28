@@ -1,4 +1,26 @@
 <h2 class="prof-title"><%= @user.name %></h2>
 <p class="prof-username">@<%= @user.username %></p>
+<table class="point-table">
+  <thead>
+    <tr>
+      <th>所有ポイント合計</th>
+      <td><span class="big"><%= point_total(@user) %></span>pt</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>投稿ポイント</th>
+      <td><span class="big"><%= post_point_calc(@user) %></span>pt</td>
+    </tr>
+    <tr>
+      <th>Good ポイント</th>
+      <td><span class="big"><%= good_calc(@user) %></span>pt</td>
+    </tr>
+    <tr>
+      <th>Bad ポイント</th>
+      <td class="red"><span class="big">-<%= bad_calc(@user) %></span>pt</td>
+    </tr>
+  </tbody>
+</table>
 <h3>最近の投稿</h3>
 <%= render 'posts/posts', posts: @user.posts %>

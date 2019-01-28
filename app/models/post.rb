@@ -10,4 +10,11 @@ class Post < ApplicationRecord
   has_many :good_users, through: :goods, class_name: 'Post', source: :post
   has_many :bads
   has_many :bad_users, through: :bads, class_name: 'Post', source: :post
+  
+  after_initialize :set_default_point
+  
+  def set_default_point
+    self.search_point ||= 0
+  end
+  
 end

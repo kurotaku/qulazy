@@ -19,8 +19,13 @@ Rails.application.routes.draw do
     collection do
       get 'ajax_incremental_search'
       get 'result'
+      get 'answer'
+      post 'answer_create'
     end
   end
+
   resources :judges, only: [:create, :destroy]
+  
+  resources :not_founds, only: [:index]
   
 end

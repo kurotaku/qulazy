@@ -1,0 +1,24 @@
+<%= form_for(@post, url: answer_create_posts_path(@post)) do |f| %>
+  <%= render 'layouts/error_messages', object: f.object %>
+  
+  <%= f.hidden_field :post_point, value: @not_found.point  %>
+  
+  <%= hidden_field :not_found, :not_found_id, value: @not_found.id  %>
+
+  <div class="form-group">
+    <%= f.label :title, 'title' %>
+    <%= f.text_field :title, class: 'form-control', readonly: true %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :fact, 'fact' %>
+    <%= f.text_area :fact, class: 'form-control', rows: 5 %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :opinion, 'opinion' %>
+    <%= f.text_area :opinion, class: 'form-control', rows: 5 %>
+  </div>
+  
+  <%= f.submit '投稿する', class: 'btn btn-primary btn-block' %>
+<% end %>

@@ -1,9 +1,17 @@
 <h2><%= @post.title %></h2>
 <% if @post.fact.length > 0 %>
-  <h3>fact</h3>
+  <label>fact</label>
   <p><%= simple_format(@post.fact) %></p>
 <% end %>
 <% if @post.opinion.length > 0 %>
-  <h3>opinion</h3>
+  <label>opinion</label>
   <p><%= @post.opinion %></p>
+  <label>view point</label>
+  <p><%= @post.search_point %>point</p>
+  <label>post point</label>
+  <p><%= @post.post_point %>point</p>
+  <label>good point</label>
+  <p><%= @post.good_users.count %>point</p>
+  <label>bad point</label>
+  <p><%= @post.bad_users.count %>point</p>
 <% end %>

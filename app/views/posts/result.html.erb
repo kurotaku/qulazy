@@ -1,5 +1,5 @@
 <h2><%= params[:keyword] %></h2>
 <h3>検索結果</h3>
-<%= render 'posts/result_posts', posts: @posts %>
+<%= render 'posts/result_posts', posts: @posts, not_found: @not_found %>
 <h3>再検索</h3>
 <%= render 'shared/search_form' %>

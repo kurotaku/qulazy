@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207133547) do
+ActiveRecord::Schema.define(version: 20180104170816) do
 
   create_table "judges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "type"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20171207133547) do
     t.index ["user_id"], name: "index_judges_on_user_id"
   end
 
+  create_table "not_founds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.integer "point"
+  end
+
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.string "fact"
@@ -30,6 +37,8 @@ ActiveRecord::Schema.define(version: 20171207133547) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "search_point"
+    t.integer "post_point"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
